@@ -3,8 +3,8 @@ import platform
 
 
 def pacman_make_ready():
-    os.system("pacman -Syy")
-    os.system("pacman -Syu")
+    os.system("pacman -Syy --noconfirm")
+    os.system("pacman -Syu --noconfirm")
 
 
 def pacman_fix_common_error():
@@ -14,7 +14,7 @@ def pacman_fix_common_error():
 def pacman_install(package_name: str = None):
     if package_name is None:
         print("+ Please enter the package name")
-    os.system(f"pacman -S {package_name.lower()}")
+    os.system(f"pacman -S {package_name.lower()} --noconfirm")
 
 
 def install_all_for_mainrig():
@@ -23,6 +23,7 @@ def install_all_for_mainrig():
         sudo pacman -S linux-lts
         sudo pacman -S linux-lts-headers
     """
+    pacman_make_ready()
     all_packages = [
         "base-devel", "git", "atom", "audacious", "audacity",
         "eclipse-java", "firefox", "flameshot", "gimp", "kate",
@@ -59,7 +60,7 @@ def ENTIRE_PROGRAM():
     mmo = input("? Please select and option: ")
     if mmo == "1":
         os.system("clear")
-        print("""
+        print(r"""
   _     _                _             ____  __  __       _       ____  _       
  | |__ (_)_ __ _   _ ___| |__   __ _  / __ \|  \/  | __ _(_)_ __ |  _ \(_) __ _ 
  | '_ \| | '__| | | / __| '_ \ / _` |/ / _` | |\/| |/ _` | | '_ \| |_) | |/ _` |
@@ -78,7 +79,7 @@ def ENTIRE_PROGRAM():
         sublime-text-4,steam, sudo, teams, teamviewer
         telegram-desktop, tor-browser, tk, vlc, wget
         wps-office, woeusb-gui, yakuake, yay, zoom
-        bpytop, htop, curl
+        bpytop, htop, curl, snapd
              """)
         smo1 = input("? Hit enter if you want to continue: ")
         if smo1.lower().startswith("q"):

@@ -34,8 +34,8 @@ def install_all_for_mainrig():
         "telegram-desktop", "tor-browser", "tk", "vlc", "wget",
         "wps-office", "woeusb-gui", "yakuake", "yay", "zoom",
         "bpytop", "htop", "ffpmeg", "partitionmanager", "curl",
-        "discord", "bitwarden", "gedit",
-        "p7zip", "p7zip-plugins", "unrar", "tar", "rsync"
+        "discord", "bitwarden", "gedit", "jellyfin-media-player"
+        "p7zip", "p7zip-plugins", "unrar", "tar", "rsync", "snapd"
     ]
     for package in all_packages:
         pacman_install(package_name=package)
@@ -79,7 +79,7 @@ def ENTIRE_PROGRAM():
         sublime-text-4,steam, sudo, teams, teamviewer
         telegram-desktop, tor-browser, tk, vlc, wget
         wps-office, woeusb-gui, yakuake, yay, zoom
-        bpytop, htop, curl, snapd
+        bpytop, htop, curl, snapd, jellyfin-media-player
              """)
         smo1 = input("? Hit enter if you want to continue: ")
         if smo1.lower().startswith("q"):
